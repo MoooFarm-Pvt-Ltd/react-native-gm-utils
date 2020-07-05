@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-gm-utils.git",
-    "baseUrl": "https://github.com/github_account/react-native-gm-utils"
+    "url": "git+https://github.com/gurmundi7/react-native-gm-utils.git",
+    "baseUrl": "https://github.com/gurmundi7/react-native-gm-utils"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Gurpreet Singh",
+    "email": "gurpreetmundi777@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
