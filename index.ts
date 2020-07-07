@@ -10,3 +10,5 @@ export const changeNavigationBarColor = (color: string, light: boolean, animated
     }
     GmUtils.changeNavigationBarColor(color, light, animated);
 }
+
+export * from './src'
