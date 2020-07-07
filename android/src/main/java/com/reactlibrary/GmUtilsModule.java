@@ -1,8 +1,22 @@
 package com.reactlibrary;
 
+import android.app.Activity;
+import android.app.KeyguardManager;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.PowerManager;
+import android.provider.Settings;
+import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.UiThreadUtil;
 import com.facebook.react.bridge.Callback;
 
 public class GmUtilsModule extends ReactContextBaseJavaModule {
