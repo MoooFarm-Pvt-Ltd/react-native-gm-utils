@@ -27,17 +27,17 @@ const preserveCamelCase = (string: string) => {
     return string;
 };
 
-export const camelCase = (input: string, options: { pascalCase: boolean }) => {
+const _camelCase = (input: string | [string], _options?: { pascalCase: boolean }) => {
     if (!(typeof input === 'string' || Array.isArray(input))) {
         throw new TypeError('Expected the input to be `string | string[]`');
     }
 
-    options = {
+    let options = {
         ...{ pascalCase: false },
-        ...options
+        ..._options
     };
 
-    const postProcess = x => options.pascalCase ? x.charAt(0).toLocaleUpperCase() + x.slice(1) : x;
+    const postProcess = (x: string) => options.pascalCase ? x.charAt(0).toLocaleUpperCase() + x.slice(1) : x;
 
     if (Array.isArray(input)) {
         input = input.map(x => x.trim())
@@ -69,3 +69,11 @@ export const camelCase = (input: string, options: { pascalCase: boolean }) => {
 
     return postProcess(input);
 };
+
+export const camelCase = (input: string | [string]) => {
+    return _camelCase(input);
+}
+
+export const pascalCase = (input: string | [string]) => {
+    return _camelCase(input, { pascalCase: true });
+}
