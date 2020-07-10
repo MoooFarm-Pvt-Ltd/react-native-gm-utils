@@ -1,6 +1,5 @@
 {
   "_from": "git+https://github.com/gurmundi7/react-native-gm-utils.git",
-  "_id": "react-native-gm-utils@1.0.0",
   "_inBundle": false,
   "_integrity": "",
   "_location": "/react-native-gm-utils",
@@ -21,10 +20,7 @@
   "_resolved": "git+https://github.com/gurmundi7/react-native-gm-utils.git#b2bff026c7d25dd7a0ed3126991038241c6033cd",
   "_spec": "react-native-gm-utils@git+https://github.com/gurmundi7/react-native-gm-utils.git",
   "_where": "/Users/gurpreetsingh/Work/ReactNative/tradlo-mobile-app",
-  "author": {
-    "name": "Gurpreet Singh",
-    "email": "gurpreetmundi777@gmail.com"
-  },
+  "author": "Gurpreet Singh <gurpreetmundi777@gmail.com> (https://gurpreetmundi.com)",
   "bugs": {
     "url": "https://github.com/gurmundi7/react-native-gm-utils/issues"
   },
@@ -66,5 +62,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "title": "React Native Gm Utils",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "dependencies": {}
 }
