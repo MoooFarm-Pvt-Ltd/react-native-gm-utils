@@ -36,6 +36,7 @@
     "android",
     "index.ts",
     "ios",
+    "src",
     "react-native-gm-utils.podspec"
   ],
   "homepage": "https://github.com/gurmundi7/react-native-gm-utils#readme",
