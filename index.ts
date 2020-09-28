@@ -32,4 +32,11 @@ export const askForOverlayPermissions = () => {
     GmUtils.askForOverlayPermissions();
 }
 
+export const isDeviceLocked = () => {
+    if (isIOS) {
+        return false;
+    }
+    return GmUtils.isDeviceLocked()
+}
+
 export * from './src'

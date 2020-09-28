@@ -56,7 +56,7 @@ public class GmUtilsModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void askForOverlayPermissions() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this.getAppContext())){
             Context context = getAppContext();
             String packageName = context.getApplicationContext().getPackageName();
 
@@ -129,6 +129,40 @@ public class GmUtilsModule extends ReactContextBaseJavaModule {
                         WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
             }
         });
+    }
+
+    /**
+     * Returns true if the device is locked or screen turned off (in case password not set)
+     */
+    @ReactMethod
+    public boolean isDeviceLocked() {
+
+        Context context = this.getAppContext();
+
+        boolean isLocked = false;
+
+        // First we check the locked state
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        boolean inKeyguardRestrictedInputMode = keyguardManager.inKeyguardRestrictedInputMode();
+
+        if (inKeyguardRestrictedInputMode) {
+            isLocked = true;
+
+        } else {
+            // If password is not set in the settings, the inKeyguardRestrictedInputMode() returns false,
+            // so we need to check if screen on for this case
+
+            PowerManager powerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
+                isLocked = !powerManager.isInteractive();
+            } else {
+                //noinspection deprecation
+                isLocked = !powerManager.isScreenOn();
+            }
+        }
+
+        //Log.d(String.format("Now device is %s.", isLocked ? "locked" : "unlocked"));
+        return isLocked;
     }
 
     //-- BOTTOM BAR COLOR METHODS
